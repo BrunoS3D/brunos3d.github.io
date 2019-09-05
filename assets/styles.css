@@ -1,4 +1,6 @@
 * {
+	margin: 0;
+	padding: 0;
 	font-family: Helvetica, sans-serif;
 }
 
@@ -7,11 +9,13 @@ html {
 }
 
 body {
-	background-image: url("./download.jpg");
+	background-image: url("./background.jpg");
 	background-size: auto;
 	background-position: top;
 	background-repeat: no-repeat;
 }
+
+/* Root */
 
 .main-container {
 	margin: 200px auto;
@@ -30,6 +34,44 @@ body {
 	text-shadow: 0 1px 3px #000;
 }
 
+/* Repo list */
+
+.repo-container {
+	margin-top: 50px;
+	padding: 30px;
+	max-width: 1000px;
+}
+
+#repo-list {
+	list-style: none;
+	margin: 30px 0;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.repo-list-item {
+	margin: 10px;
+	padding: 30px;
+	border-radius: 10px;
+	background: #dddddd;
+}
+
+.repo-title-name {
+	text-decoration: none;
+	color: #1b66a3;
+	font-size: 20px;
+}
+
+.repo-description {
+	font-size: 15px;
+	margin: 10px 0;
+}
+
+.repo-title-name:hover {
+	text-decoration: underline;
+}
+
 .paper {
 	margin-top: 200px;
 	padding: 30px;
@@ -39,7 +81,7 @@ body {
 	box-shadow: 0 0 5px #000;
 }
 
-.paper h2 {
+h2 {
 	color: #202020;
 	font-size: 30px;
 }

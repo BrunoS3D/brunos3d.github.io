@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Bruno Silva</title>
 
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="./assets/styles.css">
 </head>
 
 <body>
@@ -15,6 +15,7 @@
 		<div class="topnav">
 			<a class="nav-link active" href="#">Inicio</a>
 			<a class="nav-link" href="#about">Sobre</a>
+			<a class="nav-link" href="#projects">Projetos</a>
 			<a class="nav-link" href="#contact">Contato</a>
 			<form onsubmit="searchHandler(event)">
 				<input type="text" id="search" placeholder="Pesquise coisas...">
@@ -37,6 +38,13 @@
 			</p>
 		</div>
 
+		<div class="repo-container" id="projects">
+			<h2>
+				Meus Projetos
+			</h2>
+			<ul id="repo-list"></ul>
+		</div>
+
 		<div class="paper" id="contact">
 			<h2>
 				Entre em contato
@@ -47,11 +55,11 @@
 		</div>
 	</div>
 
-	<button onclick="topFunction()" id="button-scroll-top" title="Go to top">Top</button>
+	<button id="button-scroll-top" title="Go to top">Top</button>
 
 	<!-- scripts -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-	<script src="./index.js"></script>
+	<script src="./assets/bundle.js"></script>
 </body>
 
 </html>
