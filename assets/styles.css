@@ -1,7 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
-	font-family: Helvetica, sans-serif;
+	font-family: 'Manjari', Helvetica, sans-serif;
 }
 
 html {
@@ -9,7 +9,7 @@ html {
 }
 
 .vertical-space {
-	margin-top: 30px;
+	padding-top: 30px;
 }
 
 #navbar.scroll-dynamic {
@@ -132,6 +132,44 @@ html {
 	color: azure;
 	font-size: 20px;
 	text-shadow: 0 1px 3px #000;
+}
+
+/* About */
+
+.about-content {
+	margin: 100px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.about-content-text {
+	margin-left: 50px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* align-content: center;
+	justify-items: center;
+	justify-content: center; */
+}
+
+.about-title {
+	font-family: 'Comfortaa', 'Manjari', Helvetica, sans-serif;
+	font-size: 25px;
+	color: #2196F3;
+	margin-bottom: 20px;
+}
+
+.about-description {
+	font-size: 18px;
+	text-align: center;
+	line-height: 30px;
+}
+
+.github-avatar {
+	border-radius: 20px;
+	height: 300px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 /* Repo list */
