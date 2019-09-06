@@ -4419,16 +4419,19 @@ module.exports=[
 },{}],30:[function(require,module,exports){
 const RepoList = require("./components/RepoList");
 
-async function renderComponents() {
-	await RepoList.Render();
-}
+$(".nav-link").on("click", function () {
+	$(".nav-link.active").removeClass("active");
+	$(this).addClass("active");
+});
 
-renderComponents();
+$("#button-scroll-top").on("click", function () {
+	window.location.href = "#";
+	$(".nav-link.active").removeClass("active");
+	$('a[href="#"]').addClass("active");
+});
 
 window.onscroll = () => {
 	const scrollPos = $(document).scrollTop();
-
-	// $("#background-banner").css("transform", `scale(${scrollPos})`);
 
 	if (scrollPos > 400) {
 		$("#navbar").css("top", `${-(scrollPos - 450)}px`);
@@ -4443,17 +4446,11 @@ window.onscroll = () => {
 	}
 };
 
-$(".nav-link").on("click", () => {
-	$(".nav-link.active").removeClass("active");
-	$(this).addClass("active");
-	console.log(this);
-});
+async function renderComponents() {
+	await RepoList.Render();
+}
 
-$("#button-scroll-top").on("click", () => {
-	window.location.href = "#";
-	$(".nav-link.active").removeClass("active");
-	$('a[href="#"]').addClass("active");
-});
+renderComponents();
 
 // function searchHandler(event) {
 // 	event.preventDefault();
