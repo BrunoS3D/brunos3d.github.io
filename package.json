@@ -16,9 +16,9 @@
 	},
 	"keywords": [],
 	"author": "",
-	"license": "ISC",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/BrunoS3D/brunos3d.github.io/issues"
 	},
-	"homepage": "https://github.com/BrunoS3D/brunos3d.github.io#readme"
+	"homepage": "https://brunos3d.github.io"
 }
