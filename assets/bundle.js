@@ -1700,7 +1700,7 @@ exports.Render = async () => {
 
 	// const response = await axios.get("https://api.github.com/users/BrunoS3D/repos");
 
-	// const repos = response.data;
+	// const repos = response.data.filter((repo) => repo && !repo.fork);
 	const repos = cache.filter((repo) => repo && !repo.fork);
 
 	if (repos) {
@@ -1708,7 +1708,8 @@ exports.Render = async () => {
 
 		repos.forEach((repo) => {
 			const item = $("<li>", {
-				"class": "repo-list-item",
+				"class": "repo-list-item fade-in-bottom",
+				id: "repo-item"
 			});
 
 			const content = $("<div>", {
@@ -4426,6 +4427,8 @@ renderComponents();
 
 window.onscroll = () => {
 	const scrollPos = $(document).scrollTop();
+
+	// $("#background-banner").css("transform", `scale(${scrollPos})`);
 
 	if (scrollPos > 400) {
 		$("#navbar").css("top", `${-(scrollPos - 450)}px`);

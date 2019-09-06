@@ -55,6 +55,7 @@ body {
 	padding: 30px;
 	border-radius: 10px;
 	background: #dddddd;
+	box-shadow: 0 2px 1px #949494;
 }
 
 .repo-title-name {
@@ -73,7 +74,7 @@ body {
 }
 
 .paper {
-	margin-top: 200px;
+	margin-top: 250px;
 	padding: 30px;
 	max-width: 1000px;
 	background: #fff;

@@ -3,17 +3,18 @@ const cache = require("./cached-repo.json");
 
 exports.Render = async () => {
 
-	const response = await axios.get("https://api.github.com/users/BrunoS3D/repos");
+	// const response = await axios.get("https://api.github.com/users/BrunoS3D/repos");
 
-	const repos = response.data.filter((repo) => repo && !repo.fork);
-	// const repos = cache.filter((repo) => repo && !repo.fork);
+	// const repos = response.data.filter((repo) => repo && !repo.fork);
+	const repos = cache.filter((repo) => repo && !repo.fork);
 
 	if (repos) {
 		const list = $("#repo-list");
 
 		repos.forEach((repo) => {
 			const item = $("<li>", {
-				"class": "repo-list-item",
+				"class": "repo-list-item fade-in-bottom",
+				id: "repo-item"
 			});
 
 			const content = $("<div>", {

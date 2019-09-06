@@ -9,6 +9,8 @@ renderComponents();
 window.onscroll = () => {
 	const scrollPos = $(document).scrollTop();
 
+	// $("#background-banner").css("transform", `scale(${scrollPos})`);
+
 	if (scrollPos > 400) {
 		$("#navbar").css("top", `${-(scrollPos - 450)}px`);
 
