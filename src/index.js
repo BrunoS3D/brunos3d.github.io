@@ -11,21 +11,25 @@ $("#button-scroll-top").on("click", function () {
 	$('a[href="#"]').addClass("active");
 });
 
-window.onscroll = () => {
+$(document).scroll(function () {
+	const navbar = $("#navbar");
 	const scrollPos = $(document).scrollTop();
 
+	const scrollDynamic = $(".scroll-dynamic");
+	scrollDynamic.toggleClass("scrolled", scrollPos > navbar.height());
+
 	if (scrollPos > 400) {
-		$("#navbar").css("top", `${-(scrollPos - 450)}px`);
+		// navbar.css("top", `${-(scrollPos - 400)}px`);
 
 		// display back to top button
 		$("#button-scroll-top").css("display", "block");
 	} else {
-		$("#navbar").css("top", "50px");
+		// navbar.css("top", "0");
 
 		// hide back to top button
 		$("#button-scroll-top").css("display", "none");
 	}
-};
+});
 
 async function renderComponents() {
 	await RepoList.Render();

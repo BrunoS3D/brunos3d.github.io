@@ -12,41 +12,51 @@
 </head>
 
 <body>
-	<div id="navbar">
-		<div class="topnav">
-			<a class="nav-link active" href="#">Inicio</a>
-			<a class="nav-link" href="#about">Sobre</a>
-			<a class="nav-link" href="#projects">Projetos</a>
-			<a class="nav-link" href="#contact">Contato</a>
-			<form onsubmit="searchHandler(event)">
-				<input type="text" id="search" placeholder="Pesquise coisas...">
-			</form>
+	<div id="navbar" class="scroll-dynamic">
+		<div class="section-content">
+			<div class="scroll-dynamic topnav">
+				<a class="scroll-dynamic nav-link active" href="#">Inicio</a>
+				<a class="scroll-dynamic nav-link" href="#about">Sobre</a>
+				<a class="scroll-dynamic nav-link" href="#projects">Projetos</a>
+				<a class="scroll-dynamic nav-link" href="#contact">Contato</a>
+				<form onsubmit="searchHandler(event)">
+					<input class="scroll-dynamic nav-search" type="text" id="search" placeholder="Pesquise coisas...">
+				</form>
+			</div>
 		</div>
 	</div>
 
-	<div class="main-container">
-		<h1 class="title">
-			Bruno Silva
-		</h1>
-		<p class="subtitle">Conheça, surpreenda-se, inspire-se, renove!</p>
-
-		<div class="paper" id="about">
-			<h2>
-				Minha história
-			</h2>
-			<p>
-				[EM CONSTRUÇÃO]
-			</p>
+	<div class="main-section">
+		<div class="section-content">
+			<div class="main-content">
+				<h1 class="title">
+					Bruno Silva
+				</h1>
+				<p class="subtitle">Conheça, surpreenda-se, inspire-se, renove!</p>
+			</div>
 		</div>
+	</div>
 
-		<div class="repo-container" id="projects">
-			<h2>
+	<div class="section-content" id="about">
+		<h2 class="vertical-space">
+			Minha história
+		</h2>
+		<p>
+			[EM CONSTRUÇÃO]
+		</p>
+	</div>
+
+	<div class="repo-container" id="projects">
+		<div class="section-content">
+			<h2 class="title-centered">
 				Meus Projetos
 			</h2>
 			<ul id="repo-list"></ul>
 		</div>
+	</div>
 
-		<div class="paper" id="contact">
+	<div class="section-content" id="contact">
+		<div class="paper">
 			<h2>
 				Entre em contato
 			</h2>

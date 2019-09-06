@@ -27,10 +27,28 @@ exports.Render = async () => {
 				text: repo.name
 			});
 
+			let desc = repo.description
+
+			if (desc.length > 132) {
+				desc = desc.substr(0, 132);
+				desc = desc.substr(0, Math.min(desc.length, Math.max(desc.indexOf(" "), desc.indexOf(","), desc.indexOf("."))));
+				desc += "...";
+			}
+
 			const description = $("<p>", {
 				"class": "repo-description",
-				text: repo.description
+				text: desc
 			});
+
+			if (repo.description && repo.description.length != desc.length) {
+				const readmore = $("<a>", {
+					"class": "repo-description-readmore",
+					href: repo.html_url,
+					text: "(ver mais)"
+				});
+
+				description.append(readmore);
+			}
 
 			content.append(title);
 			content.append(description);
