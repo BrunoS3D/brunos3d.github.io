@@ -66,16 +66,31 @@
 		</div>
 	</div>
 
-	<div class="section-content" id="contact">
-		<div class="paper">
-			<h2>
-				Entre em contato
-			</h2>
-			<p>
-				[EM CONSTRUÇÃO]
-			</p>
-		</div>
+	<div class="section-content vertical-space" id="contact">
+		<h2 class="title-centered">
+			Contato
+		</h2>
+
+		<form class="contact-content" action="/">
+			<label class="contact-input-label" for="fname">Primeiro Nome:</label>
+			<input class="contact-input" type="text" id="fname" name="firstname" placeholder="Me diga seu nome 😃">
+
+			<label class="contact-input-label" for="lname">Último Nome:</label>
+			<input class="contact-input" type="text" id="lname" name="lastname" placeholder="Seu último nome aqui 📈">
+
+			<label class="contact-input-label" for="email">Seu Email:</label>
+			<input class="contact-input" type="text" id="email" name="email" placeholder="Seu email aqui 💌" required>
+
+			<label class="contact-input-label" for="subject">Assunto:</label>
+			<textarea class="contact-input-textarea" id="subject" name="subject" placeholder="Sobre o que vamos tratar?! 📎" style="height:200px"></textarea>
+
+			<input class="contact-submit-button" type="submit" value="Submit">
+		</form>
 	</div>
+
+	<footer class="vertical-space">
+
+	</footer>
 
 	<button id="button-scroll-top" title="Go to top">Top</button>
 
