@@ -3,10 +3,14 @@ const cache = require("./cached-repo.json");
 
 exports.Render = async () => {
 
-	// const response = await axios.get("https://api.github.com/users/BrunoS3D/repos");
+	const response = await axios.get("https://api.github.com/users/BrunoS3D/repos");
 
-	// const repos = response.data.filter((repo) => repo && !repo.fork);
-	const repos = cache.filter((repo) => repo && !repo.fork);
+	let repos = response.data.filter((repo) => repo && !repo.fork);
+
+	if (!repos) {
+		console.log("GITHUB NOT RESPONSE LOADING CACHED REPOSITORIES");
+		repos = cache.filter((repo) => repo && !repo.fork);
+	}
 
 	if (repos) {
 		const list = $("#repo-list");
