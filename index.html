@@ -19,12 +19,14 @@
 
 <body>
 	<div id="navbar" class="scroll-dynamic">
-		<div class="section-content">
+		<div class="nav-margin">
 			<div class="scroll-dynamic topnav">
-				<a class="scroll-dynamic nav-link active" href="#">Inicio</a>
-				<a class="scroll-dynamic nav-link" href="#about">Sobre</a>
-				<a class="scroll-dynamic nav-link" href="#projects">Projetos</a>
-				<a class="scroll-dynamic nav-link" href="#contact">Contato</a>
+				<div class="nav-links">
+					<a class="scroll-dynamic nav-link active" href="#">Inicio</a>
+					<a class="scroll-dynamic nav-link" href="#about">Sobre</a>
+					<a class="scroll-dynamic nav-link" href="#projects">Projetos</a>
+					<a class="scroll-dynamic nav-link" href="#contact">Contato</a>
+				</div>
 
 				<form onsubmit="searchHandler(event)">
 					<input class="scroll-dynamic nav-search" type="text" id="search" placeholder="Pesquise coisas...">
@@ -51,13 +53,13 @@
 		<div class="about-content">
 			<img class="github-avatar" src="https://avatars0.githubusercontent.com/u/21183964" alt="Bruno Silva">
 			<div class="about-content-text">
-				<h2 class="about-title">
+				<h2 class="content-title">
 					Sobre mim
 				</h2>
 				<p class="about-description">
 					Comecei a estudar cedo, aprendi a ler com 4 anos de idade. Aos 8 anos comecei meu primeiro
 					curso de inglês, aos 10 já realizava operações em Microsoft Office, com 12 anos comecei meu
-					primeiro curso de WebDesign (básico), no mesmo ano fiz meu primeiro curso de manutenção de
+					primeiro curso de WebDesign, no mesmo ano fiz meu primeiro curso de manutenção de
 					computadores, em 2013 iniciei com o desenvolvimento de jogos e ferramentas para outros
 					desenvolvedores realizando a venda destas ferramentas em uma loja conhecida como AssetStore.
 					Desde então venho buscando por novos conhecimentos e formas de se aplicar a tecnologia.
@@ -68,7 +70,7 @@
 
 	<div class="repo-container" id="projects">
 		<div class="section-content vertical-space">
-			<h2 class="title-centered">
+			<h2 class="content-title">
 				Meus Projetos
 			</h2>
 			<ul id="repo-list"></ul>
@@ -76,7 +78,7 @@
 	</div>
 
 	<div class="section-content vertical-space" id="contact">
-		<h2 class="title-centered vertical-space">
+		<h2 class="content-title vertical-space">
 			Contato
 		</h2>
 
