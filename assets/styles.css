@@ -12,6 +12,10 @@ html {
 	padding-top: 30px;
 }
 
+.scroll-dynamic {
+	transition: all 150ms linear;
+}
+
 #navbar {
 	position: fixed;
 	top: 0;
@@ -19,7 +23,6 @@ html {
 	right: 0;
 	margin: 0 auto;
 	z-index: 1000;
-	transition: all 300ms linear;
 }
 
 #navbar.scroll-dynamic {
@@ -43,7 +46,6 @@ html {
 	padding: 14px 16px;
 	text-decoration: none;
 	font-size: 17px;
-	transition: all 300ms linear;
 }
 
 .nav-link.scroll-dynamic {
@@ -77,13 +79,18 @@ html {
 }
 
 .nav-search {
+	width: 200px;
 	float: right;
 	padding: 6px;
 	margin-top: 8px;
 	margin-right: 16px;
 	font-size: 17px;
 	border-radius: 5px;
-	transition: all 300ms linear;
+}
+
+.nav-search:focus {
+	width: 300px;
+	outline: none;
 }
 
 .nav-search.scroll-dynamic {
@@ -223,7 +230,7 @@ html {
 }
 
 .github-avatar {
-	border-radius: 20px;
+	border-radius: 10px;
 	height: 300px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -312,16 +319,6 @@ html {
 
 .repo-description-readmore:hover {
 	text-decoration: underline;
-}
-
-h2 {
-	color: #202020;
-	font-size: 30px;
-}
-
-.paper p {
-	font-size: 20px;
-	color: #363636;
 }
 
 #button-scroll-top {
