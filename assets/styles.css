@@ -69,7 +69,7 @@ html {
 }
 
 .nav-link.scroll-dynamic.scrolled {
-	color: black;
+	color: #000;
 }
 
 .nav-link.scroll-dynamic:hover {
@@ -94,11 +94,47 @@ html {
 	border-bottom: none;
 }
 
+#search-form {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.svg-search-icon {
+	fill: #fff;
+}
+
+.svg-search-icon.scroll-dynamic {
+	fill: #fff;
+}
+
+.svg-search-icon.scroll-dynamic.scrolled {
+	fill: #000;
+}
+
+.svg-search-icon.scroll-dynamic:hover {
+	fill: #aaa;
+}
+
+.svg-search-icon.scroll-dynamic.scrolled:hover {
+	fill: #555;
+}
+
+.submit-search-button {
+	position: absolute;
+	width: 30px;
+	top: 13px;
+	right: 5px;
+	bottom: 13px;
+	border: none;
+	outline: none;
+	background: none;
+}
+
 .nav-search {
 	width: 200px;
 	padding: 6px;
-	margin-top: 8px;
-	margin-right: 16px;
 	font-size: 17px;
 	border-radius: 5px;
 }

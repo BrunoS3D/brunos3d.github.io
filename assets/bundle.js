@@ -4458,6 +4458,8 @@ $("#search-form").submit(function (event) {
 	event.preventDefault();
 	const search = $("#search").val();
 
+	if (!search) return;
+
 	// console.log("Realizando Busca:", search);
 
 	if (lastSearch == search) {
