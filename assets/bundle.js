@@ -4458,7 +4458,7 @@ $("#search-form").submit(function (event) {
 	event.preventDefault();
 	const search = $("#search").val();
 
-	console.log("Realizando Busca:", search);
+	// console.log("Realizando Busca:", search);
 
 	if (lastSearch == search) {
 		searchNavCounter++;
@@ -4468,7 +4468,7 @@ $("#search-form").submit(function (event) {
 		searchNavCounter = 0;
 	}
 
-	const elements = $("h1, h2, p, a").filter(function () {
+	const elements = $("h1, h2, p, a, label").filter(function () {
 		return $(this).text().toLowerCase().indexOf(search.toLowerCase()) >= 0;
 	});
 
@@ -4478,7 +4478,7 @@ $("#search-form").submit(function (event) {
 
 	const element = elements.eq(searchNavCounter);
 
-	if (element) {
+	if (element && element.offset()) {
 		// console.log("Encontrado", element);
 		$(document).scrollTop(element.offset().top - 200);
 	}
