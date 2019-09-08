@@ -4502,6 +4502,18 @@ $("#search-form").submit(function (event) {
 		// console.log("Não Encontrado");
 	}
 });
+$("#contact-form").submit(function (event) {
+	event.preventDefault();
+
+	const fname = $("#fname").val();
+	const lname = $("#lname").val();
+	const subject = $("#subject").val();
+
+	//mailto:bruno3dcontato@gmail.com?subject=whatever&body=whatever2
+	const URI = `mailto:bruno3dcontato@gmail.com?subject=Portfolio%20Contato:%20${encodeURIComponent(fname)}%20${encodeURIComponent(lname)}&body=${encodeURIComponent(subject)}`;
+
+	window.open(URI, "_blank");
+});
 
 $(document).scroll(function () {
 	const navbar = $("#navbar");
