@@ -11,6 +11,41 @@ $("#button-scroll-top").on("click", function () {
 	$('a[href="#"]').addClass("active");
 });
 
+let lastSearch = "";
+let searchNavCounter = 0;
+$("#search-form").submit(function (event) {
+	event.preventDefault();
+	const search = $("#search").val();
+
+	console.log("Realizando Busca:", search);
+
+	if (lastSearch == search) {
+		searchNavCounter++;
+	}
+	else {
+		lastSearch = search;
+		searchNavCounter = 0;
+	}
+
+	const elements = $("h1, h2, p, a").filter(function () {
+		return $(this).text().toLowerCase().indexOf(search.toLowerCase()) >= 0;
+	});
+
+	if (searchNavCounter >= elements.length) {
+		searchNavCounter = 0;
+	}
+
+	const element = elements.eq(searchNavCounter);
+
+	if (element) {
+		// console.log("Encontrado", element);
+		$(document).scrollTop(element.offset().top - 200);
+	}
+	else {
+		// console.log("Não Encontrado");
+	}
+});
+
 $(document).scroll(function () {
 	const navbar = $("#navbar");
 	const scrollPos = $(document).scrollTop();
@@ -36,11 +71,3 @@ async function renderComponents() {
 }
 
 renderComponents();
-
-// function searchHandler(event) {
-// 	event.preventDefault();
-// 	const search = $("#search").val();
-// 	// window.location.href = `#${search}`;
-// 	console.log($(`*:contains("${search}"):eq(0):last`));
-// 	$("window").scrollTop($(`*:contains("${search}"):eq(0):last`).offset().top);
-// }
