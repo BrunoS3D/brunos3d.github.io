@@ -45,8 +45,6 @@ html {
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-/* ====================== NAV LINK ====================== */
-
 .nav-link {
 	font-size: 17px;
 	padding: 14px 16px;
@@ -178,7 +176,6 @@ html {
 
 .contact-input {
 	padding: 6px;
-	margin-right: 16px;
 	font-size: 17px;
 	border-radius: 5px;
 	border: none;
@@ -191,7 +188,6 @@ html {
 	min-height: 150px;
 	height: auto;
 	padding: 6px;
-	margin-right: 16px;
 	font-size: 17px;
 	border-radius: 5px;
 	border: none;
@@ -264,9 +260,6 @@ html {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	/* align-content: center;
-	justify-items: center;
-	justify-content: center; */
 }
 
 .content-title {
@@ -287,8 +280,6 @@ html {
 	height: 300px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
-
-/* Repo list */
 
 .repo-container {
 	background: #f5f5f5;
@@ -323,7 +314,6 @@ html {
 }
 
 .repo-list-item {
-	/* a margin total eh de 10px eu subtraio pela espessura da border */
 	margin-top: 3px;
 	border-top: 7px solid #1b66a3;
 }

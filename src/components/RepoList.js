@@ -8,7 +8,7 @@ exports.Render = async () => {
 	let repos = response.data.filter((repo) => repo && !repo.fork);
 
 	if (!repos) {
-		console.log("GITHUB NOT RESPONSE LOADING CACHED REPOSITORIES");
+		console.warn("GITHUB NOT RESPONSE LOADING CACHED REPOSITORIES");
 		repos = cache.filter((repo) => repo && !repo.fork);
 	}
 

@@ -1,17 +1,22 @@
 const RepoList = require("./components/RepoList");
+const FooterTimestamp = require("./components/FooterTimestamp");
 
-// void Start =]
+let lastSearch = "";
+let searchNavCounter = 0;
+
+async function renderComponents() {
+	await RepoList.Render();
+	await FooterTimestamp.Render();
+}
+
 $(document).ready(function () {
-	const today = new Date();
-	const year = today.getFullYear();
-	$("#timestamp").text(`© 2019 - ${year}`);
-
-	// evita que a navbar inicialize transparente quando o scroll não for igual a 0
 	const navbar = $("#navbar");
 	const scrollPos = $(document).scrollTop();
 
 	const scrollDynamic = $(".scroll-dynamic");
 	scrollDynamic.toggleClass("scrolled", scrollPos > navbar.height());
+
+	renderComponents();
 });
 
 $(".nav-link").on("click", function () {
@@ -25,15 +30,11 @@ $("#button-scroll-top").on("click", function () {
 	$('a[href="#"]').addClass("active");
 });
 
-let lastSearch = "";
-let searchNavCounter = 0;
 $("#search-form").submit(function (event) {
 	event.preventDefault();
 	const search = $("#search").val();
 
 	if (!search) return;
-
-	// console.log("Realizando Busca:", search);
 
 	if (lastSearch == search) {
 		searchNavCounter++;
@@ -54,13 +55,10 @@ $("#search-form").submit(function (event) {
 	const element = elements.eq(searchNavCounter);
 
 	if (element && element.offset()) {
-		// console.log("Encontrado", element);
 		$(document).scrollTop(element.offset().top - 200);
 	}
-	else {
-		// console.log("Não Encontrado");
-	}
 });
+
 $("#contact-form").submit(function (event) {
 	event.preventDefault();
 
@@ -68,7 +66,6 @@ $("#contact-form").submit(function (event) {
 	const lname = $("#lname").val();
 	const subject = $("#subject").val();
 
-	//mailto:bruno3dcontato@gmail.com?subject=whatever&body=whatever2
 	const URI = `mailto:bruno3dcontato@gmail.com?subject=Portfolio%20Contato:%20${encodeURIComponent(fname)}%20${encodeURIComponent(lname)}&body=${encodeURIComponent(subject)}`;
 
 	window.open(URI, "_blank");
@@ -82,20 +79,9 @@ $(document).scroll(function () {
 	scrollDynamic.toggleClass("scrolled", scrollPos > navbar.height());
 
 	if (scrollPos > 400) {
-		// navbar.css("top", `${-(scrollPos - 400)}px`);
-
-		// display back to top button
 		$("#button-scroll-top").css("display", "block");
-	} else {
-		// navbar.css("top", "0");
-
-		// hide back to top button
+	}
+	else {
 		$("#button-scroll-top").css("display", "none");
 	}
 });
-
-async function renderComponents() {
-	await RepoList.Render();
-}
-
-renderComponents();

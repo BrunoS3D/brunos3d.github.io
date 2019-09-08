@@ -1693,6 +1693,12 @@ module.exports = function isBuffer (obj) {
 }
 
 },{}],28:[function(require,module,exports){
+exports.Render = async () => {
+	const today = new Date();
+	const year = today.getFullYear();
+	$("#timestamp").text(`© 2019 - ${year}`);
+};
+},{}],29:[function(require,module,exports){
 const axios = require("axios");
 const cache = require("./cached-repo.json");
 
@@ -1703,7 +1709,7 @@ exports.Render = async () => {
 	let repos = response.data.filter((repo) => repo && !repo.fork);
 
 	if (!repos) {
-		console.log("GITHUB NOT RESPONSE LOADING CACHED REPOSITORIES");
+		console.warn("GITHUB NOT RESPONSE LOADING CACHED REPOSITORIES");
 		repos = cache.filter((repo) => repo && !repo.fork);
 	}
 
@@ -1759,7 +1765,7 @@ exports.Render = async () => {
 	}
 };
 
-},{"./cached-repo.json":29,"axios":2}],29:[function(require,module,exports){
+},{"./cached-repo.json":30,"axios":2}],30:[function(require,module,exports){
 module.exports=[
 	{
 		"id": 197683302,
@@ -4438,21 +4444,26 @@ module.exports=[
 		"default_branch": "master"
 	}
 ]
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 const RepoList = require("./components/RepoList");
+const FooterTimestamp = require("./components/FooterTimestamp");
 
-// void Start =]
+let lastSearch = "";
+let searchNavCounter = 0;
+
+async function renderComponents() {
+	await RepoList.Render();
+	await FooterTimestamp.Render();
+}
+
 $(document).ready(function () {
-	const today = new Date();
-	const year = today.getFullYear();
-	$("#timestamp").text(`© 2019 - ${year}`);
-
-	// evita que a navbar inicialize transparente quando o scroll não for igual a 0
 	const navbar = $("#navbar");
 	const scrollPos = $(document).scrollTop();
 
 	const scrollDynamic = $(".scroll-dynamic");
 	scrollDynamic.toggleClass("scrolled", scrollPos > navbar.height());
+
+	renderComponents();
 });
 
 $(".nav-link").on("click", function () {
@@ -4466,15 +4477,11 @@ $("#button-scroll-top").on("click", function () {
 	$('a[href="#"]').addClass("active");
 });
 
-let lastSearch = "";
-let searchNavCounter = 0;
 $("#search-form").submit(function (event) {
 	event.preventDefault();
 	const search = $("#search").val();
 
 	if (!search) return;
-
-	// console.log("Realizando Busca:", search);
 
 	if (lastSearch == search) {
 		searchNavCounter++;
@@ -4495,13 +4502,10 @@ $("#search-form").submit(function (event) {
 	const element = elements.eq(searchNavCounter);
 
 	if (element && element.offset()) {
-		// console.log("Encontrado", element);
 		$(document).scrollTop(element.offset().top - 200);
 	}
-	else {
-		// console.log("Não Encontrado");
-	}
 });
+
 $("#contact-form").submit(function (event) {
 	event.preventDefault();
 
@@ -4509,7 +4513,6 @@ $("#contact-form").submit(function (event) {
 	const lname = $("#lname").val();
 	const subject = $("#subject").val();
 
-	//mailto:bruno3dcontato@gmail.com?subject=whatever&body=whatever2
 	const URI = `mailto:bruno3dcontato@gmail.com?subject=Portfolio%20Contato:%20${encodeURIComponent(fname)}%20${encodeURIComponent(lname)}&body=${encodeURIComponent(subject)}`;
 
 	window.open(URI, "_blank");
@@ -4523,21 +4526,10 @@ $(document).scroll(function () {
 	scrollDynamic.toggleClass("scrolled", scrollPos > navbar.height());
 
 	if (scrollPos > 400) {
-		// navbar.css("top", `${-(scrollPos - 400)}px`);
-
-		// display back to top button
 		$("#button-scroll-top").css("display", "block");
-	} else {
-		// navbar.css("top", "0");
-
-		// hide back to top button
+	}
+	else {
 		$("#button-scroll-top").css("display", "none");
 	}
 });
-
-async function renderComponents() {
-	await RepoList.Render();
-}
-
-renderComponents();
-},{"./components/RepoList":28}]},{},[30]);
+},{"./components/FooterTimestamp":28,"./components/RepoList":29}]},{},[31]);
