@@ -1,5 +1,19 @@
 const RepoList = require("./components/RepoList");
 
+// void Start =]
+$(document).ready(function () {
+	const today = new Date();
+	const year = today.getFullYear();
+	$("#timestamp").text(`© 2019 - ${year}`);
+
+	// evita que a navbar inicialize transparente quando o scroll não for igual a 0
+	const navbar = $("#navbar");
+	const scrollPos = $(document).scrollTop();
+
+	const scrollDynamic = $(".scroll-dynamic");
+	scrollDynamic.toggleClass("scrolled", scrollPos > navbar.height());
+});
+
 $(".nav-link").on("click", function () {
 	$(".nav-link.active").removeClass("active");
 	$(this).addClass("active");
@@ -46,12 +60,6 @@ $("#search-form").submit(function (event) {
 	else {
 		// console.log("Não Encontrado");
 	}
-});
-
-$(document).ready(function () {
-	const today = new Date();
-	const year = today.getFullYear();
-	$("#timestamp").text(`© 2019 - ${year}`);
 });
 
 $(document).scroll(function () {
