@@ -4487,6 +4487,12 @@ $("#search-form").submit(function (event) {
 	}
 });
 
+$(document).ready(function () {
+	const today = new Date();
+	const year = today.getFullYear();
+	$("#timestamp").text(`© 2019 - ${year}`);
+});
+
 $(document).scroll(function () {
 	const navbar = $("#navbar");
 	const scrollPos = $(document).scrollTop();
