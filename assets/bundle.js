@@ -1704,16 +1704,25 @@ const cache = require("./cached-repo.json");
 
 exports.Render = async () => {
 
-	const response = await axios.get("https://api.github.com/users/BrunoS3D/repos");
+	let repos = cache;
 
-	let repos = response.data.filter((repo) => repo && !repo.fork);
+	try {
+		const response = await axios.get("https://api.github.com/users/BrunoS3D/repos");
 
-	if (!repos) {
+		if (response && response.data) {
+			repos = response.data;
+		}
+		else {
+			console.warn("GITHUB NOT RESPONSE LOADING CACHED REPOSITORIES");
+		}
+	}
+	catch {
 		console.warn("GITHUB NOT RESPONSE LOADING CACHED REPOSITORIES");
-		repos = cache.filter((repo) => repo && !repo.fork);
 	}
 
 	if (repos) {
+		repos = repos.filter((repo) => repo && !repo.fork);
+
 		const list = $("#repo-list");
 
 		repos.forEach((repo) => {
