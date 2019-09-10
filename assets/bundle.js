@@ -1774,7 +1774,20 @@ exports.Render = async () => {
 	}
 };
 
-},{"./cached-repo.json":30,"axios":2}],30:[function(require,module,exports){
+},{"./cached-repo.json":31,"axios":2}],30:[function(require,module,exports){
+exports.Render = async () => {
+	$("#slideshow > .slideshow-item:gt(0)").hide();
+
+	setInterval(function () {
+		$("#slideshow > .slideshow-item:first")
+			.fadeOut(1000)
+			.next()
+			.fadeIn(1000)
+			.end()
+			.appendTo("#slideshow");
+	}, 3000);
+};
+},{}],31:[function(require,module,exports){
 module.exports=[
 	{
 		"id": 197683302,
@@ -4453,15 +4466,18 @@ module.exports=[
 		"default_branch": "master"
 	}
 ]
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 const RepoList = require("./components/RepoList");
+const SlideShow = require("./components/SlideShow");
 const FooterTimestamp = require("./components/FooterTimestamp");
 
 let lastSearch = "";
 let searchNavCounter = 0;
 
+// Olhe no fim deste script
 async function renderComponents() {
 	await RepoList.Render();
+	await SlideShow.Render();
 	await FooterTimestamp.Render();
 }
 
@@ -4471,8 +4487,6 @@ $(document).ready(function () {
 
 	const scrollDynamic = $(".scroll-dynamic");
 	scrollDynamic.toggleClass("scrolled", scrollPos > navbar.height());
-
-	renderComponents();
 });
 
 $(".nav-link").on("click", function () {
@@ -4541,4 +4555,6 @@ $(document).scroll(function () {
 		$("#button-scroll-top").css("display", "none");
 	}
 });
-},{"./components/FooterTimestamp":28,"./components/RepoList":29}]},{},[31]);
+
+renderComponents();
+},{"./components/FooterTimestamp":28,"./components/RepoList":29,"./components/SlideShow":30}]},{},[32]);

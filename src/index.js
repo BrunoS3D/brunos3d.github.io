@@ -1,11 +1,14 @@
 const RepoList = require("./components/RepoList");
+const SlideShow = require("./components/SlideShow");
 const FooterTimestamp = require("./components/FooterTimestamp");
 
 let lastSearch = "";
 let searchNavCounter = 0;
 
+// Olhe no fim deste script
 async function renderComponents() {
 	await RepoList.Render();
+	await SlideShow.Render();
 	await FooterTimestamp.Render();
 }
 
@@ -15,8 +18,6 @@ $(document).ready(function () {
 
 	const scrollDynamic = $(".scroll-dynamic");
 	scrollDynamic.toggleClass("scrolled", scrollPos > navbar.height());
-
-	renderComponents();
 });
 
 $(".nav-link").on("click", function () {
@@ -85,3 +86,5 @@ $(document).scroll(function () {
 		$("#button-scroll-top").css("display", "none");
 	}
 });
+
+renderComponents();
