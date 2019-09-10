@@ -246,8 +246,6 @@ html {
 	text-shadow: 0 1px 3px #000;
 }
 
-/* About */
-
 .about-content {
 	margin: 100px;
 	display: flex;
@@ -279,6 +277,31 @@ html {
 	border-radius: 10px;
 	height: 300px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.mockup-container {
+	width: 100%;
+	position: relative;
+}
+
+.mockup-screen-view {
+	position: absolute;
+	top: 18.7%;
+	left: 22.2%;
+	width: 54.3%;
+	height: 50.9%;
+	background: #353535;
+	z-index: -1;
+}
+
+.mockup-centered {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-items: center;
+	align-content: center;
+	justify-content: center;
 }
 
 .mockup-img {
