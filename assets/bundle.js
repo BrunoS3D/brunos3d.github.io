@@ -4491,7 +4491,7 @@ function navbarUpdate() {
 
 $(window).on("load", function () {
 	// console.log("window loaded");
-	$("#load-screen").fadeOut(1500);
+	$("#load-screen").fadeOut(500);
 });
 
 $(document).ready(function () {
