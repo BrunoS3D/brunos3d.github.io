@@ -12,12 +12,22 @@ async function renderComponents() {
 	await FooterTimestamp.Render();
 }
 
-$(document).ready(function () {
+function navbarUpdate() {
 	const navbar = $("#navbar");
 	const scrollPos = $(document).scrollTop();
 
 	const scrollDynamic = $(".scroll-dynamic");
 	scrollDynamic.toggleClass("scrolled", scrollPos > navbar.height());
+}
+
+$(window).on("load", function () {
+	// console.log("window loaded");
+	$("#load-screen").fadeOut(1500);
+});
+
+$(document).ready(function () {
+	// console.log("document ready");
+	navbarUpdate();
 });
 
 $(".nav-link").on("click", function () {
@@ -73,11 +83,8 @@ $("#contact-form").submit(function (event) {
 });
 
 $(document).scroll(function () {
-	const navbar = $("#navbar");
 	const scrollPos = $(document).scrollTop();
-
-	const scrollDynamic = $(".scroll-dynamic");
-	scrollDynamic.toggleClass("scrolled", scrollPos > navbar.height());
+	navbarUpdate();
 
 	if (scrollPos > 400) {
 		$("#button-scroll-top").css("display", "block");
