@@ -23,6 +23,7 @@ function navbarUpdate() {
 $(window).on("load", function () {
 	// console.log("window loaded");
 	$("#load-screen").fadeOut(500);
+	$("#typewriter").addClass("typewriter-anim");
 });
 
 $(document).ready(function () {

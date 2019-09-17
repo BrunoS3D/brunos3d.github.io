@@ -32,7 +32,7 @@
 	}
 }
 
-.typewriter p {
+.typewriter-anim p {
 	overflow: hidden;
 	border-right: 0.15em solid #2196F3;
 	white-space: nowrap;
