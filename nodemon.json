@@ -1,6 +1,0 @@
-{
-	"watch": [
-		"./src"
-	],
-	"exec": "browserify ./src/index.js -o ./assets/bundle.js"
-}
