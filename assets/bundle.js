@@ -1699,6 +1699,10 @@ exports.Render = async () => {
 	$("#timestamp").text(`© 2019 - ${year}`);
 };
 },{}],29:[function(require,module,exports){
+exports.Render = async () => {
+	$.getScript("https://buttons.github.io/buttons.js");
+};
+},{}],30:[function(require,module,exports){
 const axios = require("axios");
 const cache = require("./cached-repo.json");
 
@@ -1754,6 +1758,52 @@ exports.Render = async () => {
 				text: desc
 			});
 
+			const github_buttons = $("<div>", {
+				"class": "github_buttons",
+			});
+
+			/*
+			<!-- Place this tag where you want the button to render. -->
+			<a class="github-button" href="https://github.com/BrunoS3D/Doom-Fire/subscription" data-icon="octicon-eye" aria-label="Watch BrunoS3D/Doom-Fire on GitHub">Watch</a>
+			*/
+
+			const watch_button = $("<a>", {
+				"class": "github-button",
+				href: `https://github.com/BrunoS3D/${repo.name}/subscription`,
+				"data-icon": "octicon-eye",
+				"data-size": "large",
+				"aria-label": `Watch BrunoS3D/${repo.name} on GitHub`,
+				text: "Watch"
+			});
+
+			/*
+			<!-- Place this tag where you want the button to render. -->
+			<a class="github-button" href="https://github.com/BrunoS3D/Bla-bla-bot" data-icon="octicon-star" data-size="large" aria-label="Star BrunoS3D/Bla-bla-bot on GitHub">Star</a>
+			*/
+
+			const star_button = $("<a>", {
+				"class": "github-button",
+				href: `https://github.com/BrunoS3D/${repo.name}`,
+				"data-icon": "octicon-star",
+				"data-size": "large",
+				"aria-label": `Star BrunoS3D/${repo.name} on GitHub`,
+				text: "Star"
+			});
+
+			/*
+			<!-- Place this tag where you want the button to render. -->
+			<a class="github-button" href="https://github.com/BrunoS3D/Doom-Fire/fork" data-icon="octicon-repo-forked" aria-label="Fork BrunoS3D/Doom-Fire on GitHub">Fork</a>
+			*/
+
+			const fork_button = $("<a>", {
+				"class": "github-button",
+				href: `https://github.com/BrunoS3D/${repo.name}/fork`,
+				"data-icon": "octicon-repo-forked",
+				"data-size": "large",
+				"aria-label": `Fork BrunoS3D/${repo.name} on GitHub`,
+				text: "Fork"
+			});
+
 			if (repo.description && repo.description.length != desc.length) {
 				const readmore = $("<a>", {
 					"class": "repo-description-readmore",
@@ -1764,17 +1814,22 @@ exports.Render = async () => {
 				description.append(readmore);
 			}
 
+			github_buttons.append(watch_button);
+			github_buttons.append(fork_button);
+			github_buttons.append(star_button);
+
 			content.append(title);
 			content.append(description);
 
 			item.append(content);
+			item.append(github_buttons);
 
 			list.append(item);
 		});
 	}
 };
 
-},{"./cached-repo.json":31,"axios":2}],30:[function(require,module,exports){
+},{"./cached-repo.json":32,"axios":2}],31:[function(require,module,exports){
 exports.Render = async () => {
 	$("#slideshow > .slideshow-item:gt(0)").hide();
 
@@ -1787,7 +1842,7 @@ exports.Render = async () => {
 			.appendTo("#slideshow");
 	}, 3000);
 };
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 module.exports=[
 	{
 		"id": 197683302,
@@ -4466,9 +4521,10 @@ module.exports=[
 		"default_branch": "master"
 	}
 ]
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 const RepoList = require("./components/RepoList");
 const SlideShow = require("./components/SlideShow");
+const GitHubButtons = require("./components/GitHubButtons");
 const FooterTimestamp = require("./components/FooterTimestamp");
 
 let lastSearch = "";
@@ -4479,6 +4535,8 @@ async function renderComponents() {
 	await RepoList.Render();
 	await SlideShow.Render();
 	await FooterTimestamp.Render();
+	// Executar por ultimo =]
+	await GitHubButtons.Render();
 }
 
 function navbarUpdate() {
@@ -4565,4 +4623,4 @@ $(document).scroll(function () {
 });
 
 renderComponents();
-},{"./components/FooterTimestamp":28,"./components/RepoList":29,"./components/SlideShow":30}]},{},[32]);
+},{"./components/FooterTimestamp":28,"./components/GitHubButtons":29,"./components/RepoList":30,"./components/SlideShow":31}]},{},[33]);

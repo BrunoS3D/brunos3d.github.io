@@ -1,5 +1,6 @@
 const RepoList = require("./components/RepoList");
 const SlideShow = require("./components/SlideShow");
+const GitHubButtons = require("./components/GitHubButtons");
 const FooterTimestamp = require("./components/FooterTimestamp");
 
 let lastSearch = "";
@@ -10,6 +11,8 @@ async function renderComponents() {
 	await RepoList.Render();
 	await SlideShow.Render();
 	await FooterTimestamp.Render();
+	// Executar por ultimo =]
+	await GitHubButtons.Render();
 }
 
 function navbarUpdate() {

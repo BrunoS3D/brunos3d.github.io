@@ -53,6 +53,52 @@ exports.Render = async () => {
 				text: desc
 			});
 
+			const github_buttons = $("<div>", {
+				"class": "github_buttons",
+			});
+
+			/*
+			<!-- Place this tag where you want the button to render. -->
+			<a class="github-button" href="https://github.com/BrunoS3D/Doom-Fire/subscription" data-icon="octicon-eye" aria-label="Watch BrunoS3D/Doom-Fire on GitHub">Watch</a>
+			*/
+
+			const watch_button = $("<a>", {
+				"class": "github-button",
+				href: `https://github.com/BrunoS3D/${repo.name}/subscription`,
+				"data-icon": "octicon-eye",
+				"data-size": "large",
+				"aria-label": `Watch BrunoS3D/${repo.name} on GitHub`,
+				text: "Watch"
+			});
+
+			/*
+			<!-- Place this tag where you want the button to render. -->
+			<a class="github-button" href="https://github.com/BrunoS3D/Bla-bla-bot" data-icon="octicon-star" data-size="large" aria-label="Star BrunoS3D/Bla-bla-bot on GitHub">Star</a>
+			*/
+
+			const star_button = $("<a>", {
+				"class": "github-button",
+				href: `https://github.com/BrunoS3D/${repo.name}`,
+				"data-icon": "octicon-star",
+				"data-size": "large",
+				"aria-label": `Star BrunoS3D/${repo.name} on GitHub`,
+				text: "Star"
+			});
+
+			/*
+			<!-- Place this tag where you want the button to render. -->
+			<a class="github-button" href="https://github.com/BrunoS3D/Doom-Fire/fork" data-icon="octicon-repo-forked" aria-label="Fork BrunoS3D/Doom-Fire on GitHub">Fork</a>
+			*/
+
+			const fork_button = $("<a>", {
+				"class": "github-button",
+				href: `https://github.com/BrunoS3D/${repo.name}/fork`,
+				"data-icon": "octicon-repo-forked",
+				"data-size": "large",
+				"aria-label": `Fork BrunoS3D/${repo.name} on GitHub`,
+				text: "Fork"
+			});
+
 			if (repo.description && repo.description.length != desc.length) {
 				const readmore = $("<a>", {
 					"class": "repo-description-readmore",
@@ -63,10 +109,15 @@ exports.Render = async () => {
 				description.append(readmore);
 			}
 
+			github_buttons.append(watch_button);
+			github_buttons.append(fork_button);
+			github_buttons.append(star_button);
+
 			content.append(title);
 			content.append(description);
 
 			item.append(content);
+			item.append(github_buttons);
 
 			list.append(item);
 		});

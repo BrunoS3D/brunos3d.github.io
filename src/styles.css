@@ -303,9 +303,9 @@ html {
 }
 
 .github-avatar {
-	border-radius: 10px;
+	border-radius: 25% 0 25% 0;
 	height: 300px;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
 .mockup-container {
@@ -382,11 +382,23 @@ html {
 .repo-list-item {
 	margin: 10px;
 	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	background: #fff;
 	border-radius: 3px;
 	transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
+
+.github_buttons {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+/* .github_buttons .github-button {} */
 
 .repo-list-item:hover {
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
