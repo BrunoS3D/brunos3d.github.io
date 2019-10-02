@@ -1750,7 +1750,7 @@ exports.Render = async () => {
 			if (desc.length > 132) {
 				desc = desc.substr(0, 132);
 				desc = desc.substr(0, Math.min(desc.length, Math.max(desc.indexOf(" "), desc.indexOf(","), desc.indexOf("."))));
-				if (desc.length <= 100) {
+				if (desc.length <= 10) {
 					desc = desc.substr(0, 132);
 				}
 				desc += "...";
